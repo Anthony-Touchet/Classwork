@@ -1,0 +1,18 @@
+﻿Build started 9/29/2015 3:52:33 PM.
+     1>Project "C:\Users\anthony.touchet\Desktop\Homework\Classes\ZomUseLL\ZomUseLL\ZomUseLL.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Actions.cpp Source.cpp
+         Actions.cpp
+         Source.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\anthony.touchet\Desktop\Homework\Classes\ZomUseLL\Release\ZomUseLL.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\anthony.touchet\Desktop\Homework\Classes\ZomUseLL\Release\ZomUseLL.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\anthony.touchet\Desktop\Homework\Classes\ZomUseLL\Release\ZomUseLL.lib" /MACHINE:X86 /SAFESEH Release\Actions.obj
+         Release\Source.obj
+         Generating code
+         All 141 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+         Finished generating code
+         ZomUseLL.vcxproj -> C:\Users\anthony.touchet\Desktop\Homework\Classes\ZomUseLL\Release\ZomUseLL.exe
+     1>Done Building Project "C:\Users\anthony.touchet\Desktop\Homework\Classes\ZomUseLL\ZomUseLL\ZomUseLL.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.48

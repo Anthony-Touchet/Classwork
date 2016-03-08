@@ -1,0 +1,474 @@
+Anthony Touchet
+
+Source:
+#include "Classes.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	Cell g;
+	Player player;
+	Cell grid[16];
+	
+	grid[5] = g.cell({ 1,1 }, false, false, false, true, false, false);
+	grid[8] = g.cell({ 2, 0}, false, false, false, true, false, true);
+	grid[9] = g.cell({ 2, 1 }, false, false, true, false, false, false);
+	grid[10] = g.cell({ 2, 2 }, false, false, false, true, false, false);
+	grid[11] = g.cell({ 2, 3 }, false, true, false, false, false, false);
+	grid[12] = g.cell({ 3, 0 }, false, false, false, false, true, false);
+	grid[13] = g.cell({ 3, 1 }, false, false, false, true, false, true);
+	grid[14] = g.cell({ 3, 2 }, false, true, false, false, false, false);
+	grid[15] = g.cell({ 3, 3 }, true, false, false, false, false, false);
+
+	player.intro();
+
+	system("pause");
+	system("cls");
+
+	for (int m = 0; m < 300; m++)
+	{
+		player = player.move(player);
+
+		if (player.pos.x < 0 || player.pos.y < 0 || player.pos.x > 3 || player.pos.y > 3)//Off the map
+		{
+			cout << "You fell off the map. Game over\n";
+			system("pause");
+			return 0;
+
+		}
+
+		Cell b;//Substituting cell
+
+		b.pos.x = player.pos.x;
+		b.pos.y = player.pos.y;
+		switch (b.pos.x)
+		{
+		case 1:
+			switch (b.pos.y)
+			{
+			case 1:
+				b = b.setvars(b, grid[5]);
+				break;
+			}
+			break;
+
+		case 2://x = 2
+			switch (b.pos.y)
+			{
+			case 0:
+				b = b.setvars(b, grid[8]);
+				break;
+
+			case 1:
+				b = b.setvars(b, grid[9]);
+				break;
+
+			case 2:
+				b = b.setvars(b, grid[10]);
+				break;
+
+			case 3:
+				b = b.setvars(b, grid[11]);
+				break;
+			}
+			break;
+
+		case 3:// x = 3
+			switch (b.pos.y)
+			{
+			case 0:
+				b = b.setvars(b, grid[12]);
+				break;
+
+			case 1:
+				b = b.setvars(b, grid[13]);
+				break;
+
+			case 2:
+				b = b.setvars(b, grid[14]);
+				break;
+
+			case 3:
+				b = b.setvars(b, grid[15]);
+				break;
+			}
+			break;
+		}
+
+		int result = b.checkroom(b);//Checking the room
+
+		if (result == 1)//Player died
+		{
+			break;	
+		}
+
+		else//Player still alive
+		{
+			player = player.goldcheck(player);//Has gold?
+			int success = player.successcheck(player);//End goal.
+
+			if (success == 1)
+			{
+				cout << "Well the Wumpus didn't get you and you have the gold. Good job I guess. Kinda wished you died.\n";
+				break;
+			}
+
+			if (m % 2 == 0)//Clearing the screen every second move
+				{
+				system("pause");
+				system("cls");
+				}
+			b = b.reset(b);//reset the checker Cell
+			continue;
+		}		
+	}
+
+	system("pause");
+	return 0;
+}
+
+Anthony Touchet
+Actions:
+#include "Classes.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+Player Player::setdir(Player a)//Setting the direction of the player
+{
+	int d;
+	cout << "Choose the way you face with each number:\n1 for North\n2 for South\n3 for East\n4 for West.\n";
+	cin >> d;
+	switch (d)
+	{
+	case 1:
+		a.direction = 1;//North
+		break;
+
+	case 2:
+		a.direction = 2;//South
+		break;
+
+	case 3:
+		a.direction = 3;//East
+		break;
+
+	case 4:
+		a.direction = 4;//West
+		break;
+
+	default://Human element prevention
+		cout << "Nice try we are facing you north.";
+		a.direction = 1;
+		break;
+	}
+
+	return a;
+}
+
+Player Player::move(Player pos)//Moving the player from one room to another
+{
+	pos = pos.setdir(pos);
+	int m;
+	for (int i = 0; i < 20; i++)
+	{
+		cout << "Facing " << pos.direction << "\n5 to move forward.\n2 to movebackward\n3 to move right\n1 to move left.\n";
+		cin >> m;
+
+		switch (pos.direction)
+		{
+		case 1://North
+			switch (m)
+			{
+			case 5://forward
+				pos.pos.y = pos.pos.y + 1;
+				break;
+
+			case 2://backward
+				pos.pos.y = pos.pos.y - 1;
+				break;
+
+			case 3://left
+				pos.pos.x = pos.pos.x + 1;
+				break;
+
+			case 1://right
+				pos.pos.x = pos.pos.x - 1;
+				break;
+
+			default://Human element prevention
+				cout << "Try again.\n";
+				continue;
+			}
+			break;
+
+		case 2://South
+		{
+			switch (m)
+			{
+			case 5://foreward
+				pos.pos.y = pos.pos.y - 1;
+				break;
+
+			case 2://backward
+				pos.pos.y = pos.pos.y + 1;
+				break;
+
+			case 3://right
+				pos.pos.x = pos.pos.x - 1;
+				break;
+
+			case 1://left
+				pos.pos.x = pos.pos.x + 1;
+				break;
+
+			default://Human element prevention
+				cout << "Try again.\n";
+				continue;
+			}
+			break;
+		}
+
+		case 3://East
+		{
+			switch (m)
+			{
+			case 5://foreward
+				pos.pos.x = pos.pos.x + 1;
+				break;
+
+			case 2://backward
+				pos.pos.x = pos.pos.x - 1;
+				break;
+
+			case 3://right
+				pos.pos.y = pos.pos.y - 1;
+				break;
+
+			case 1://left
+				pos.pos.y = pos.pos.y + 1;
+				break;
+
+			default://Human element prevention
+				cout << "Try again.\n";
+				continue;
+			}
+			break;
+		}
+
+		case 4://West
+		{
+			switch (m)
+			{
+			case 5://forward
+				pos.pos.x = pos.pos.x - 1;
+				break;
+
+			case 2://backward
+				pos.pos.x = pos.pos.x + 1;
+				break;
+
+			case 3://right
+				pos.pos.y = pos.pos.y + 1;
+				break;
+
+			case 1://left
+				pos.pos.y = pos.pos.y - 1;
+				break;
+
+			default://Human element prevention
+				cout << "Try again.\n";
+				continue;
+			}
+			break;
+		}
+		}
+
+		cout << "The player is at : " << pos.pos.x << ", " << pos.pos.y << endl;
+		return pos;
+		}
+}
+
+Cell Cell::cell(Position pos, bool go, bool gl, bool p, bool b, bool W, bool s)//Function used to set the grid
+{
+	Cell a;
+	a.pos = pos;
+	a.gold = go;
+	a.pit = p;
+	a.Wumpus = W;
+	a.breeze = b;
+	a.stench = s;
+	a.glimmer = gl;
+
+	return a;
+}
+
+Cell Cell::setvars(Cell b, Cell grid)//setiing the variables for the Substituting cell
+{
+	b.gold = grid.gold;
+	b.glimmer = grid.glimmer;
+	b.pit = grid.pit;
+	b.breeze = grid.breeze;
+	b.Wumpus = grid.Wumpus;
+	b.stench = grid.stench;
+	b.pos = grid.pos;
+
+	return b;
+}
+
+Cell Cell::reset(Cell b)//Reseting the substitution cell
+{
+	b.gold = false;
+	b.glimmer = false;
+	b.pit = false;
+	b.breeze = false;
+	b.Wumpus = false;
+	b.stench = false;
+
+	return b;
+}
+
+int Cell::checkroom(Cell b)//Checking the room.
+{
+	if (b.stench == true && b.breeze == true)//stench and breez
+	{
+		cout << "You feel a slight breeze and smell a horrible smell.\n";
+		return 0;
+	}
+
+	else if (b.glimmer == true && b.breeze == true)//glimmer and breeze
+	{
+		cout << "You feel a slight breeze and can see a small glimmer of a shiney metal.\n";
+		return 0;
+	}
+
+	else if (b.glimmer == true && b.stench == true)//glimmer and stench
+	{
+		cout << "You smell a rank oder but you can see a small glimmer of a shiney metal.\n";
+		return 0;
+	}
+
+	else if (b.glimmer == true)//Glimmer of hope
+	{
+		cout << "You can see a glimmer\n";
+		return 0;
+	}
+
+	else if (b.breeze == true)//Breeze of death
+	{
+		cout << "You can feel a breeze flowing through the room.\n";
+		return 0;
+	}
+
+	else if (b.stench == true)//Stench of Decay
+	{
+		cout << "You can smell an aweful stench in this room.\n";
+		return 0;
+	}
+
+	else if (b.Wumpus == true)//Wumpus
+	{
+		cout << "You found the Wumpus and it has eaten you. Game over.\n";
+		return 1;
+	}
+
+	else if (b.pit == true)//Pit trap
+	{
+		cout << "You fell down a pit with spikes at the bottom. Game over.\n";
+		return 1;
+	}
+
+	else//All Clear
+	{
+		cout << "You're all clear. Nothing dangerous nearby.\n";
+		return 0;
+	}
+}
+
+void Player::intro()//Intro
+{
+	cout << "Welcome to The Maze of The Wumpus. The Wumpus is is a smart but smelly creature.He has set pit-traps that have breezes flowing nearby them. The Wumpus himself\ngives off a aweful stench himself that spreads to other rooms. Your goal is to\nsteal the treasure of gold form the Wumpus and get back to the start. You can\nmove horizontally and vertically by 1 space each. We will track where you are inthe maze so you can know where you are. You must also pick a direction to face\neach turn as well.\n";
+}
+
+Player Player::goldcheck(Player play)//Setting Player's gold to true.
+{
+
+	if (play.pos.x == 3 && play.pos.y == 3)
+	{
+		cout << "You've got the gold!! Get back to room 0, 0!!\n";
+		play.playgold = true;
+	}
+
+	return play;
+}
+
+Player Player::checkpos(Player play)//Checking the position of the player
+{
+	play.pos.y = pos.y;
+	play.pos.x = pos.x;
+	return play;
+}
+
+int Player::successcheck(Player play)//Seeing if the player has succeeded in getting the gold
+{
+	if (play.pos.x == 0 && play.pos.y == 0 && play.playgold == true)
+	{
+		return 1;
+	}
+
+	else
+	{
+		return 0;
+	}
+}
+
+Anthony Touchet
+Classes:
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Position
+{
+	int x;//x axis, Colums
+	int y;//y axis, Rows
+};
+
+class Player
+{
+private:
+	Position stpos = { 0,0 };
+	bool playgold = false;//Player has gold?
+
+public:
+	Position pos = stpos;//Position
+	Player move(Player pos);//Moving the player
+	int direction = 1;//Defult Direction
+	Player setdir(Player a);//Setting direction
+	void intro();//Introduction
+	Player goldcheck(Player play);//Checking for Gold
+	Player checkpos(Player play);//Checking player position
+	int successcheck(Player play);//Has the player won?
+};
+
+class Cell
+{
+private:
+	bool gold;//Room has Gold?
+	bool glimmer;//Room has a Glimmer?
+	bool pit;//Room has a pit?
+	bool breeze;//Room has a Breeze?
+	bool Wumpus;//Room has the Wumpus?
+	bool stench;//Room has a stench?
+
+public:
+	Position pos;//Cell Position
+
+	Cell cell(Position pos, bool go, bool gl, bool p, bool b, bool W, bool s );//Creating room properties
+	Cell setvars(Cell b, Cell grid);//Setting the variables for rooms
+	int checkroom(Cell b);//Checking the room
+	Cell reset(Cell b);//Reseting the substitution Cell
+};

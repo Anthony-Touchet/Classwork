@@ -1,0 +1,6 @@
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Interfaces\Interfaces\bin\Debug\Interfaces.exe.config
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Interfaces\Interfaces\bin\Debug\Interfaces.exe
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Interfaces\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Interfaces\Interfaces\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Interfaces\Interfaces\obj\Debug\Interfaces.exe
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Interfaces\Interfaces\obj\Debug\Interfaces.pdb

@@ -1,0 +1,7 @@
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Interfaces\Combat\Combat\bin\Debug\Combat.exe.config
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Combat\Combat\bin\Debug\Combat.exe.config
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Combat\Combat\bin\Debug\Combat.exe
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Combat\Combat\bin\Debug\Combat.pdb
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Combat\Combat\obj\Debug\Combat.csprojResolveAssemblyReference.cache
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Combat\Combat\obj\Debug\Combat.exe
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Combat\Combat\obj\Debug\Combat.pdb

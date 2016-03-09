@@ -1,0 +1,6 @@
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Interfaces\Senpai\EquateandCompare\EquateandCompare\bin\Debug\EquateandCompare.exe.config
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Interfaces\Senpai\EquateandCompare\EquateandCompare\bin\Debug\EquateandCompare.exe
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Interfaces\Senpai\EquateandCompare\EquateandCompare\bin\Debug\EquateandCompare.pdb
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Interfaces\Senpai\EquateandCompare\EquateandCompare\obj\Debug\EquateandCompare.csprojResolveAssemblyReference.cache
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Interfaces\Senpai\EquateandCompare\EquateandCompare\obj\Debug\EquateandCompare.exe
+C:\Users\anthony.touchet\Documents\GitHub\Classwork\Interfaces\Interfaces\Senpai\EquateandCompare\EquateandCompare\obj\Debug\EquateandCompare.pdb

@@ -1,0 +1,6 @@
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Senpai\Senpai\bin\Debug\Senpai.exe.config
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Senpai\Senpai\bin\Debug\Senpai.exe
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Senpai\Senpai\bin\Debug\Senpai.pdb
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Senpai\Senpai\obj\Debug\Senpai.csprojResolveAssemblyReference.cache
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Senpai\Senpai\obj\Debug\Senpai.exe
+C:\Users\anthony.touchet\Desktop\Homework\Interfaces\Senpai\Senpai\obj\Debug\Senpai.pdb

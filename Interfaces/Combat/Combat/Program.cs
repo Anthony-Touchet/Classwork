@@ -62,9 +62,8 @@ namespace Combat
         string na;
         public bool live = true;
 
-        public Item(int mh, int h, int map, int attp, int ma, string n)
+        public Item(int h, int map, int attp, int ma, string n)
         {
-            maxHealth = mh;
             health = h;
             mp = map;
             ap = attp;
@@ -220,11 +219,11 @@ namespace Combat
     {
         static void Main(string[] args)
         {
-            Item ita = new Item(0, 100, 0, 0, 0, "Potion");
-            Item itb = new Item(0, 100, 0, 0, 0, "Potion");
+            Item ita = new Item(100, 0, 0, 0, "Potion");
+            Item itb = new Item(50, 0, 0, 0, "Potion");
 
-            Unit a = new Unit(100, 3, 10, 30, "a", ita);
-            Unit b = new Unit(1000, 0, 5, 30, "b", itb);
+            Unit a = new Unit(200, 3, 10, 50, "a", ita);
+            Unit b = new Unit(750, 0, 5, 30, "b", itb);
 
             for(int i = 0; i < 100;)
             {
@@ -238,23 +237,23 @@ namespace Combat
                     break;
                 }
 
-                if (a.health <= a.maxHealth / 4 && a.mp > 0)
+                if (a.health <= (a.maxHealth / 4) && a.mp > 0)
                 {
                     a.Heal(a);
                 }
 
-                else if (a.health <= a.maxHealth / 4 && a.mp <= 0 && a.item.live == true)
+                else if (a.health <= (a.maxHealth / 4) && a.mp <= 0 && a.item.live == true)
                 {
                     a.UseItem(a);
                 }
 
 
-                if (b.health <= b.maxHealth / 4 && b.mp > 0)
+                if (b.health <= (b.maxHealth / 4) && b.mp > 0)
                 {
                     b.Heal(b);
                 }
 
-                else if (b.health <= b.maxHealth / 4 && b.mp <= 0 && b.item.live == true)
+                else if (b.health <= (b.maxHealth / 4) && b.mp <= 0 && b.item.live == true)
                 {
                     b.UseItem(b);
                 }
